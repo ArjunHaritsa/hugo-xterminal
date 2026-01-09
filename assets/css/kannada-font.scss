@@ -1,0 +1,18 @@
+/* Noto Sans Kannada font for Kannada language posts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;500;600;700&display=swap');
+
+/* Apply Kannada font to posts with language=kn */
+article[data-language="kn"],
+.post[data-language="kn"],
+[lang="kn"] {
+  font-family: 'Noto Sans Kannada', sans-serif;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans Kannada', sans-serif;
+  }
+  
+  p, li, span, div {
+    font-family: 'Noto Sans Kannada', sans-serif;
+    line-height: 1.9;
+  }
+}

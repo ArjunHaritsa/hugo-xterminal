@@ -1,0 +1,12 @@
+/* Restore text cursor for input fields and editable content */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+textarea,
+[contenteditable="true"],
+[contenteditable] {
+  cursor: text !important;
+}

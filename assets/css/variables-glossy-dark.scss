@@ -1,0 +1,32 @@
+:root {
+  --accent-contrast-color: black;
+  --article-link-color: var(inherit);
+  /* Matte black background */
+  --background: #0a0a0a;
+
+  --border-color: rgba(255, 255, 255, 0.12);
+  --color: #c9d1d9;
+  --foreground: #c9d1d9;
+  --menu-color: #c9d1d9;
+  
+  /* Default blue accent RGB values */
+  --accent-rgb: 35, 176, 255;
+
+  /* Code and syntax highlighting tuned for dark glossy */
+  --syntax-func-color: color-mix(in srgb, var(--accent) 70%, #999 30%);
+  --syntax-var-color: color-mix(in srgb, var(--accent) 90%, transparent);
+  --syntax-punctuation-color: #e6edf3;
+  --syntax-value-color: color-mix(in srgb, var(--accent), #e6edf3);
+  --syntax-comment-color: rgba(255, 255, 255, 0.28);
+  --syntax-line-highlight-mix: color-mix(in srgb, var(--accent) 90%, #888 10%);
+  --syntax-line-highlight-background-color: hsla(210, 15%, 28%, 0.35);
+  --syntax-line-highlight-color: #e6edf3;
+  --syntax-line-highlight-box-shadow: rgba(255,255,255,0.6);
+  --syntax-code-border-color: rgba(255, 255, 255, 0.12);
+  --syntax-code-copy-button-background: hsla(0, 0%, 87.8%, 0.18);
+  --syntax-code-copy-button-color: #bfc5d2;
+  --syntax-code-copy-button-box-shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+$phone: 684px;
+$tablet: 900px;

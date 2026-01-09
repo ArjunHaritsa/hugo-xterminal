@@ -3,12 +3,35 @@
     <div class="header__logo">
       {{ partial "logo.html" . }}
     </div>
-    {{ if len $.Site.Menus }}
-      {{ partial "mobile-menu.html" . }}
-    {{ end }}
+    <div class="header__animation">
+      <span class="animated-dot animated-dot-1">•</span>
+      <span class="animated-dot animated-dot-2">•</span>
+      <span class="animated-dot animated-dot-3">•</span>
+    </div>
+    {{/* Mobile menu removed - using desktop menu for all screen sizes */}}
     {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
       {{ partial "language-menu.html" . }}
     {{ end }}
+    <div class="header__controls">
+      <div class="brightness-toggle-container">
+        <input id="brightness-toggle" type="checkbox" class="brightness-switch" aria-label="Toggle brightness" />
+        <label for="brightness-toggle" class="brightness-switch__label" aria-hidden="true" title="Toggle Brightness">
+          <span class="brightness-icon">󰛨</span>
+        </label>
+      </div>
+      
+      <div class="header__toggle">
+        <input id="theme-toggle" type="checkbox" class="toggle-switch" aria-label="Toggle theme" />
+        <label for="theme-toggle" class="toggle-switch__label" aria-hidden="true">
+          <span class="toggle-switch__track"></span>
+          <span class="toggle-switch__thumb"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="header__separator">
+    <div class="separator-line"></div>
+    <span class="separator-icon"></span>
   </div>
   {{ if len $.Site.Menus }}
     {{ partial "menu.html" . }}

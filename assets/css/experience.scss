@@ -1,0 +1,487 @@
+/* Experience page - Resume style with separators */
+.experience-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  
+  // Collapsible job sections
+  details {
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    border-radius: 8px;
+    background: rgba(var(--accent-rgb), 0.03);
+    transition: all 0.3s ease;
+
+    &:not([open]):hover {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.08);
+      transform: translateY(-2px);
+    }
+
+    &[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.03);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1rem 1.2rem;
+      position: relative;
+      transition: all 0.2s ease;
+      border-radius: 6px;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:hover {
+        background: rgba(var(--accent-rgb), 0.08);
+      }
+
+      h3 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        
+        &::first-letter {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        
+        code {
+          float: none;
+          font-size: 0.85rem;
+          color: var(--accent);
+          font-weight: 400;
+          opacity: 0.8;
+          background: transparent;
+          padding: 0;
+          font-family: inherit;
+          flex-shrink: 0;
+          margin-left: 1rem;
+          
+          &::before,
+          &::after {
+            content: '';
+          }
+        }
+      }
+
+      strong {
+        display: inline-block;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 1rem;
+      }
+
+      em {
+        display: inline-block;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+    }
+
+    // Content padding when expanded
+    &[open] {
+      > *:not(summary) {
+        padding: 0 1.2rem 1rem 1.2rem;
+      }
+    }
+  }
+  
+  // Two-column header layout
+  .experience-header-section {
+    display: flex !important;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    
+    @media (max-width: $phone) {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 0.75rem;
+    }
+    
+    .header-photo {
+      flex: 0 0 auto;
+      
+      figure {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        
+        img {
+          align-self: center;
+        }
+        
+        figcaption {
+          margin-top: 0.5rem;
+          color: var(--foreground);
+          opacity: 0.8;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+    .header-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 2rem;
+      border-left: 2px solid var(--border-color);
+      height: 240px;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      
+      @media (max-width: $phone) {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 1.5rem;
+        border-top: 2px solid var(--border-color);
+        height: auto;
+        width: 100%;
+      }
+      
+      .candidate-name {
+        font-size: 1.5rem;
+        color: var(--accent);
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
+      }
+      
+      .current-role {
+        font-size: 1.1rem;
+        color: var(--foreground);
+        margin: 0 0 0.3rem 0;
+        font-weight: 500;
+      }
+      
+      .current-duration {
+        font-size: 0.9rem;
+        color: var(--foreground);
+        opacity: 0.7;
+        margin: 0 0 1.5rem 0;
+      }
+      
+      .language-showcase {
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-content: flex-start !important;
+        gap: 0.5rem !important;
+      }
+    }
+  }
+  
+  // Square profile photo for experience page
+  img.experience-photo {
+    display: block;
+    width: 380px;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--accent);
+    margin: 0;
+    max-width: 100%;
+    
+    @media (max-width: $phone) {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      aspect-ratio: 3/4;
+    }
+  }
+  
+  // Center the figure containing the photo
+  figure {
+    text-align: center;
+    margin: 0;
+    
+    img.experience-photo {
+      margin: 0 auto;
+    }
+    
+    figcaption {
+      margin-top: 0.5rem;
+      color: var(--foreground);
+      opacity: 0.8;
+    }
+  }
+  
+  .experience-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--accent);
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  .experience-content {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    
+    h2 {
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: none;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%);
+      }
+      
+      &:first-child {
+        margin-top: 1rem;
+      }
+    }
+
+    h3 {
+      color: var(--foreground);
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      position: relative;
+      padding-left: 1.2rem;
+      
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+      
+      // Add separator line after each job/role
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.15) 20%,
+          rgba(255, 255, 255, 0.15) 80%,
+          transparent 100%
+        );
+      }
+      
+      // Style content in square brackets as dates on the right
+      code {
+        float: right;
+        font-size: 0.9rem;
+        color: var(--accent);
+        font-weight: 400;
+        opacity: 0.8;
+        background: transparent;
+        padding: 0;
+        font-family: inherit;
+        
+        &::before,
+        &::after {
+          content: '';
+        }
+      }
+    }
+
+    h4 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+      
+      & + h3 {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+      }
+      
+      strong {
+        color: var(--foreground);
+        font-weight: 600;
+        opacity: 0.9;
+      }
+      
+      // Location styling (italicized text after company name)
+      em {
+        color: var(--foreground);
+        opacity: 0.7;
+        font-size: 0.95rem;
+        display: block;
+        margin-top: 0.25rem;
+      }
+      
+      // Hashtag styling (tags/keywords as code tags)
+      code {
+        display: inline-block;
+        background: rgba(var(--accent-rgb), 0.15);
+        color: var(--accent);
+        padding: 0.2rem 0.6rem;
+        margin: 0.2rem 0.3rem 0.2rem 0;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        border: 1px solid rgba(var(--accent-rgb), 0.3);
+        transition: all 0.2s ease;
+        font-family: inherit;
+        
+        &:hover {
+          background: rgba(var(--accent-rgb), 0.25);
+          border-color: var(--accent);
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 2rem;
+      
+      li {
+        position: relative;
+        padding-left: 1.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+        color: var(--foreground);
+        
+        &::before {
+          content: '▪';
+          position: absolute;
+          left: 0.3rem;
+          top: 0.1em;
+          color: var(--accent);
+          font-size: 1rem;
+          line-height: 1;
+        }
+      }
+    }
+
+    strong {
+      color: var(--foreground);
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    
+    // Add spacing after job sections
+    h3 + p + ul {
+      margin-bottom: 2.5rem;
+    }
+  }
+  
+  @media (max-width: $phone) {
+    padding: 1rem 0.5rem;
+    
+    .experience-title {
+      font-size: 2rem;
+    }
+    
+    .experience-content {
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.2rem;
+        
+        code {
+          float: none;
+          display: block;
+          margin-top: 0.25rem;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
+
+/* Light theme overrides - remove opacity that makes text appear dimmed */
+body:not(.glossy-dark) {
+  .experience-page {
+    /* Force all text to solid black */
+    figcaption,
+    p,
+    li,
+    strong,
+    em,
+    .job-title,
+    .job-location,
+    details summary strong,
+    details summary em,
+    .showcase-label {
+      color: black !important;
+      opacity: 1 !important;
+    }
+    h3 {
+      color: black !important;
+      opacity: 1 !important;
+    }
+    
+    details summary h3 code {
+      opacity: 1 !important;
+    }
+    
+    ul {
+      opacity: 1 !important;
+    }
+    
+    li::before {
+      opacity: 1 !important;
+    }
+    
+    /* Remove blue tinted backgrounds that create foggy effect */
+    details {
+      background: rgba(var(--accent-rgb), 0.03);
+      border: 1px solid rgba(var(--accent-rgb), 0.2);
+      
+      &:not([open]):hover {
+        background: rgba(var(--accent-rgb), 0.08);
+        border-color: var(--accent);
+      }
+      
+      &[open] {
+        background: rgba(var(--accent-rgb), 0.03);
+        border-color: var(--accent);
+      }
+      
+      summary:hover {
+        background: rgba(var(--accent-rgb), 0.08);
+      }
+    }
+  }
+}

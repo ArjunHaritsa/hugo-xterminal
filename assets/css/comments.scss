@@ -1,0 +1,17 @@
+/* Comments section styling */
+.comments-section {
+  max-width: 850px;
+  margin: 3rem auto 2rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.giscus {
+  width: 100%;
+}
+
+/* Style giscus to match theme */
+.giscus-frame {
+  width: 100%;
+  border: none;
+}

@@ -1,5 +1,10 @@
-<a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">
-  <div class="logo">
-    {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}re-Terminal{{ end }}
-  </div>
-</a>
+<div class="logo">
+  <button id="color-theme-toggle" class="logo-segment logo-segment-1" aria-label="Cycle color theme" title="Change Theme Color">
+    <span class="logo-icon"></span>
+  </button>
+  <span class="logo-separator"></span>
+  <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}" class="logo-segment logo-segment-2">
+    <span class="logo-text">{{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}re-Terminal{{ end }}</span>
+  </a>
+  <span class="logo-separator-end"></span>
+</div>

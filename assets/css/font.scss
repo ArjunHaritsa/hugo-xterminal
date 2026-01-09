@@ -3,7 +3,7 @@
   font-family: 'Fira Code';
   font-style:  normal;
   font-weight: 400;
-  src: url("../fonts/FiraCode-Regular.woff") format("woff");
+  src: url("/fonts/FiraCode-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -11,5 +11,52 @@
   font-family: 'Fira Code';
   font-style:  normal;
   font-weight: 800;
-  src: url("../fonts/FiraCode-Bold.woff") format("woff");
+  src: url("/fonts/FiraCode-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Symbols Nerd Font';
+  font-style:  normal;
+  font-weight: 500;
+  src: url("/fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Symbols Nerd Font Mono';
+  font-style:  normal;
+  font-weight: 800;
+  src: url("/fonts/NerdFontsSymbolsOnly/SymbolsNerdFontMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'FiraMono Nerd Font';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("/fonts/FiraMono/FiraMonoNerdFont-Regular.otf") format("opentype");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Sans Kannada';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("/fonts/Noto_Sans_Kannada/static/NotoSansKannada-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Sans Kannada SemiBold';
+  font-style:  normal;
+  font-weight: 600;
+  src: url("/fonts/Noto_Sans_Kannada/static/NotoSansKannada-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Sans Kannada Bold';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("/fonts/Noto_Sans_Kannada/static/NotoSansKannada-Bold.ttf") format("truetype");
 }

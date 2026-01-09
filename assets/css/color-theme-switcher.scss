@@ -1,0 +1,79 @@
+/* Color theme switcher - powerlevel10k style box */
+.color-theme-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.color-indicator {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+/* Color theme definitions */
+:root {
+  --accent-rgb: 35, 176, 255; /* Default blue */
+  --theme-blue: #23b0ff;
+  --theme-orange: #ff8c42;
+  --theme-green: #00d084;
+  --theme-purple: #a855f7;
+  --theme-red: #ff4757;
+  --theme-cyan: #00d9ff;
+  --theme-yellow: #ffd93d;
+  --theme-pink: #ff6b9d;
+}
+
+/* Apply color themes with higher specificity */
+html:root body[data-color-theme="blue"] {
+  --accent: var(--theme-blue) !important;
+}
+
+html:root body[data-color-theme="orange"] {
+  --accent: var(--theme-orange) !important;
+}
+
+html:root body[data-color-theme="green"] {
+  --accent: var(--theme-green) !important;
+}
+
+html:root body[data-color-theme="purple"] {
+  --accent: var(--theme-purple) !important;
+}
+
+html:root body[data-color-theme="red"] {
+  --accent: var(--theme-red) !important;
+}
+
+html:root body[data-color-theme="cyan"] {
+  --accent: var(--theme-cyan) !important;
+}
+
+html:root body[data-color-theme="yellow"] {
+  --accent: var(--theme-yellow) !important;
+}
+
+html:root body[data-color-theme="pink"] {
+  --accent: var(--theme-pink) !important;
+}

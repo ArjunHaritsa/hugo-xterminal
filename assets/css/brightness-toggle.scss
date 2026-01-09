@@ -1,0 +1,109 @@
+/* Brightness toggle controls wrapper */
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.brightness-toggle-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.75rem;
+}
+
+/* Brightness toggle button */
+.brightness-switch {
+  display: none;
+}
+
+.brightness-switch__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(var(--accent-rgb), 0.2);
+    border-color: var(--accent);
+    transform: scale(1.05);
+  }
+}
+
+.brightness-icon {
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.brightness-switch:checked + .brightness-switch__label {
+  background: var(--accent);
+  border-color: var(--accent);
+  
+  .brightness-icon {
+    color: var(--background);
+  }
+}
+
+/* Lower brightness mode - for both themes */
+body.glossy-dark.low-brightness {
+  --color: #8b949e;
+  --foreground: #8b949e;
+  --menu-color: #8b949e;
+}
+
+/* Lower brightness mode for light theme */
+body:not(.glossy-dark).low-brightness {
+  --color: #5a5a5a;
+  --foreground: #5a5a5a;
+  --menu-color: #5a5a5a;
+  
+  /* Override the forced black colors in cards for low brightness */
+  .experience-page {
+    figcaption,
+    p,
+    li,
+    strong,
+    em,
+    .job-title,
+    .job-location,
+    details summary strong,
+    details summary em,
+    .showcase-label {
+      color: #5a5a5a !important;
+    }
+    h3 {
+      color: #5a5a5a !important;
+    }
+  }
+  
+  .aboutme-page {
+    .profile-caption,
+    p,
+    li,
+    strong,
+    em,
+    .post-count-label,
+    .showcase-label {
+      color: #5a5a5a !important;
+    }
+  }
+  
+  .post-card,
+  .post-title a,
+  .post-meta time,
+  .post-summary,
+  .no-results,
+  .search-bar input,
+  .language-filter label,
+  .language-filter select,
+  .category-filter label,
+  .category-btn {
+    color: #5a5a5a !important;
+  }
+}

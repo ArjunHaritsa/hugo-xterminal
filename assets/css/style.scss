@@ -1,6 +1,8 @@
 $centerTheme: {{ if $.Site.Params.CenterTheme }}center{{ else }}flex-start{{ end }};
 
-{{ if in (slice "paper") $.Site.Params.ThemeColor }}
+{{ if eq $.Site.Params.ThemeVariant "glossy-dark" }}
+@import "variables-glossy-dark";
+{{ else if in (slice "paper") $.Site.Params.ThemeColor }}
 @import "variables-light";
 {{ else }}
 @import "variables";
@@ -18,9 +20,30 @@ $centerTheme: {{ if $.Site.Params.CenterTheme }}center{{ else }}flex-start{{ end
 @import "pagination";
 @import "footer";
 @import "banner";
+@import "profile";
+@import "cursor";
+@import "typing-animation";
+@import "aboutme";
+@import "experience";
+@import "experience";
+@import "kannada-font";
+@import "posts";
+@import "comments";
+@import "language-showcase";
 
 @import "prism";
 @import "syntax";
 @import "code";
 @import "terms";
 @import "gist";
+
+/* Runtime glossy theme overrides */
+@import "glossy-variants";
+
+/* Vertical glossy side bars */
+@import "glossy-bars";
+
+/* Toggle switch styles */
+@import "theme-toggle";
+@import "brightness-toggle";
+@import "color-theme-switcher";

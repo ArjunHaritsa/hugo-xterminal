@@ -22,7 +22,7 @@
   {{- if .Resources.GetMatch $ctx.Params.Cover }}
     {{- $cover = (.Resources.GetMatch $ctx.Params.Cover).RelPermalink -}}
   {{- else -}}
-    {{- $cover = absURL $ctx.Params.Cover -}}
+    {{- $cover = relURL $ctx.Params.Cover -}}
   {{- end -}}
 {{- else if $.Site.Params.AutoCover -}}
   {{- if (not $ctx.Params.Cover) -}}
@@ -33,22 +33,42 @@
 {{- end -}}
 
 {{- if $cover -}}
+  {{- $coverClass := cond $ctx.Params.profileCover "profile-photo" "post-cover" -}}
+  {{- $isAboutMe := or (eq $ctx.RelPermalink "/aboutme/") (strings.HasSuffix $ctx.RelPermalink "/aboutme/") -}}
   {{ if and $ctx.Params.coverCaption $isCoverCaptionEnabled }}
     <figure> 
       <!-- Cover image found -->
       <img src="{{ $cover }}"
-      class="post-cover"
+      class="{{ $coverClass }}"
       alt="{{ .Title | plainify | default " " }}"
       title="{{ $ctx.Params.CoverCredit |plainify|default "Cover Image" }}" />
       
-      <figcaption class="right">{{ $ctx.Params.coverCaption | safeHTML }}</figcaption>
+      {{- if $ctx.Params.profileCover -}}
+        <div class="post-count-container">
+          <span class="post-count-label">Posts</span>
+          <span class="post-count-number" id="post-count">...</span>
+        </div>
+      {{- end -}}
+      
+      <figcaption class="right{{ if $isAboutMe }} typing-caption{{ end }}">{{ $ctx.Params.coverCaption | safeHTML }}</figcaption>
     </figure>
   {{ else }}
     <!-- Cover image found -->
     <img src="{{ $cover }}"
-      class="post-cover"
+      class="{{ $coverClass }}"
       alt="{{ .Title | plainify | default " " }}"
       title="{{ $ctx.Params.CoverCredit |plainify|default "Cover Image" }}" />
+    
+    {{- if $ctx.Params.profileCover -}}
+      <div class="post-count-container">
+        <span class="post-count-label">Posts</span>
+        <span class="post-count-number" id="post-count">...</span>
+      </div>
+    {{- end -}}
+    
+    {{- if $ctx.Params.coverCaption -}}
+      <figcaption class="right{{ if $isAboutMe }} typing-caption{{ end }}">{{ $ctx.Params.coverCaption | safeHTML }}</figcaption>
+    {{- end -}}
   {{ end }}
 {{- end }}
 

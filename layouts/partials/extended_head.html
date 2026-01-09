@@ -2,3 +2,110 @@
 To add an extended head section, please create
 `layouts/partials/extended_head.html` in your Hugo directory.
 -->
+<!-- Fira Code Nerd Font from CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fira-code@5.0.18/index.min.css">
+<style>
+  @font-face {
+    font-family: 'FiraCode Nerd Font';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'FiraCode Nerd Font';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@master/patched-fonts/FiraCode/Bold/FiraCodeNerdFont-Bold.ttf') format('truetype');
+  }
+  /* Fix font and cursor paths for GitHub Pages deployment with baseURL */
+  @font-face {
+    font-display: swap;
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    src: url("{{ "fonts/FiraCode-Regular.woff" | relURL }}") format("woff");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 800;
+    src: url("{{ "fonts/FiraCode-Bold.woff" | relURL }}") format("woff");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'Symbols Nerd Font';
+    font-style: normal;
+    font-weight: 500;
+    src: url("{{ "fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf" | relURL }}") format("truetype");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'Symbols Nerd Font Mono';
+    font-style: normal;
+    font-weight: 800;
+    src: url("{{ "fonts/NerdFontsSymbolsOnly/SymbolsNerdFontMono-Regular.ttf" | relURL }}") format("truetype");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'FiraMono Nerd Font';
+    font-style: normal;
+    font-weight: 400;
+    src: url("{{ "fonts/FiraMono/FiraMonoNerdFont-Regular.otf" | relURL }}") format("opentype");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'Noto Sans Kannada';
+    font-style: normal;
+    font-weight: 600;
+    src: url("{{ "fonts/Noto_Sans_Kannada/static/NotoSansKannada-SemiBold.ttf" | relURL }}") format("truetype");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'Noto Sans Kannada';
+    font-style: normal;
+    font-weight: 700;
+    src: url("{{ "fonts/Noto_Sans_Kannada/static/NotoSansKannada-Bold.ttf" | relURL }}") format("truetype");
+  }
+  /* Initial cursor - will be updated by JavaScript for dynamic theme colors */
+  html, body {
+    cursor: url('{{ "images/paperplane.svg" | relURL }}') 4 4, auto;
+  }
+</style>
+<!-- Post count script for about page -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const postCountElement = document.getElementById('post-count');
+  if (postCountElement) {
+    // Fetch the posts page to count posts
+    const baseURL = '{{ .Site.BaseURL }}'.replace(/\/$/, '');
+    const postsURL = baseURL + '/posts/';
+    fetch(postsURL)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const postCards = doc.querySelectorAll('.post-card');
+        const count = postCards.length;
+        
+        // Animate the count
+        let current = 0;
+        const increment = count / 30;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= count) {
+            postCountElement.textContent = count;
+            clearInterval(timer);
+          } else {
+            postCountElement.textContent = Math.floor(current);
+          }
+        }, 30);
+      })
+      .catch(() => {
+        postCountElement.textContent = 'several';
+      });
+  }
+});
+</script>
+
+{{ partial "math.html" . }}

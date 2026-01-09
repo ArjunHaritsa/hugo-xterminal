@@ -1,9 +1,7 @@
-name = "re-Terminal"
+name = "xterminal"
 license = "MIT"
-licenselink = "https://github.com/mirus-ua/hugo-theme-re-terminal/blob/main/LICENSE.md"
-description = "A simple, retro theme for Hugo."
-homepage = "https://github.com/mirus-ua/hugo-theme-re-terminal/"
-demosite = "https://re-terminal.nebrowser.com"
+licenselink = "https://github.com/ArjunHaritsa/hugo-xterminal/blob/main/LICENSE.md"
+description = "A fork and a mod of hugo-theme-re-terminal" 
 tags = [
   "blog",
   "clean",
@@ -23,10 +21,8 @@ features = ["blog", "shortcode", "syntax highlighting"]
 min_version = 0.128
 
 [author]
-name = "Mirus"
-homepage = "https://nebrowser.com"
+name = "Arjun Haritsa"
 
 [original]
-name = "panr"
-homepage = "https://radoslawkoziel.pl"
-repo = "https://github.com/panr/hugo-theme-terminal"
+name = "Mirus"
+repo = "https://github.com/mirus-ua/hugo-theme-reterminal"

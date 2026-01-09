@@ -1,0 +1,20 @@
+// Helper to replace hardcoded rgba(35, 176, 255, X) with rgba(var(--accent-rgb), X)
+// This is a build-time replacement guide - these values should be manually replaced in SCSS files
+
+// Files to update:
+// - brightness-toggle.scss
+// - experience.scss  
+// - posts.scss
+// - profile.scss
+
+// Replace pattern:
+// rgba(35, 176, 255, 0.03) → rgba(var(--accent-rgb), 0.03)
+// rgba(35, 176, 255, 0.08) → rgba(var(--accent-rgb), 0.08)
+// rgba(35, 176, 255, 0.1) → rgba(var(--accent-rgb), 0.1)
+// rgba(35, 176, 255, 0.12) → rgba(var(--accent-rgb), 0.12)
+// rgba(35, 176, 255, 0.15) → rgba(var(--accent-rgb), 0.15)
+// rgba(35, 176, 255, 0.2) → rgba(var(--accent-rgb), 0.2)
+// rgba(35, 176, 255, 0.25) → rgba(var(--accent-rgb), 0.25)
+// rgba(35, 176, 255, 0.3) → rgba(var(--accent-rgb), 0.3)
+// rgba(35, 176, 255, 0.4) → rgba(var(--accent-rgb), 0.4)
+// rgba(35, 176, 255, 0.6) → rgba(var(--accent-rgb), 0.6)

@@ -7,15 +7,19 @@
       <div class="copyright">
         <span>© {{ now.Year }} Powered by <a href="https://gohugo.io">Hugo</a></span>
     {{ end }}
-      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      <span>:: <a href="https://github.com/ArjunHaritsa/hugo-xterminal" target="_blank">Modded</a> by <a href="https://github.com/ArjunHaritsa" target="_blank">Arjun Haritsa</a></span>
       </div>
   </div>
 </footer>
 
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
+{{ $toggle := resources.Get "js/theme-toggle.js" | js.Build }}
+{{ $brightness := resources.Get "js/brightness-toggle.js" | js.Build }}
+{{ $colorTheme := resources.Get "js/color-theme-switcher.js" | js.Build }}
+{{ $languageShowcase := resources.Get "js/language-showcase.js" | js.Build }}
 
-{{ $bundle := slice $menu $prism | resources.Concat "bundle.js" | resources.Minify }}
+{{ $bundle := slice $menu $prism $toggle $brightness $colorTheme $languageShowcase | resources.Concat "bundle.js" | resources.Minify }}
 
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
 

@@ -11,11 +11,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
+  font-family: 'Fira Code', 'Noto Sans Kannada',  'Symbols Nerd Font Mono';
   font-size: 1rem;
   line-height: 1.54;
   letter-spacing: -0.02em;
-  background-color: var(--background);
+  background: var(--background);
   color: var(--color);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +23,7 @@ body {
   font-variant-ligatures: contextual;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 
   @media (max-width: $phone) {
     font-size: 1rem;
@@ -68,6 +69,8 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
 
   &.left {
     margin-right: auto;
@@ -80,6 +83,23 @@ img {
 
   &.right {
     margin-left: auto;
+  }
+}
+
+figure {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  figcaption {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 
@@ -107,11 +127,12 @@ figure {
 
   figcaption {
     font-size: 14px;
-    padding: 5px 10px;
-    margin-top: 5px;
-    background: var(--accent);
-    color: var(--accent-contrast-color);
-    /* opacity: .8; */
+    padding: 8px 0;
+    margin-top: 12px;
+    background: transparent;
+    color: var(--color);
+    text-align: center;
+    opacity: 0.7;
 
     &.left {
       text-align: left;
@@ -128,7 +149,7 @@ figure {
 }
 
 code, kbd {
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
+  font-family: 'Fira Code', 'Noto Sans Kannada', 'Symbols Nerd Font Mono', Monaco, Consolas, Ubuntu Mono, monospace !important;
   font-feature-settings: normal;
   background: color-mix(in srgb, var(--accent), transparent 80%);
   color: var(--accent);
@@ -300,7 +321,10 @@ mark {
   padding: 40px;
   max-width: 864px;
   min-height: 100vh;
+  position: relative;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 
   &.full,
   &.center {
@@ -313,7 +337,8 @@ mark {
   }
 
   @media (max-width: $phone) {
-    padding: 20px;
+    padding: 15px;
+    border-right: none;
   }
 
   @media print {
@@ -324,6 +349,10 @@ mark {
 .content {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 
   @media print {
     display: initial;

@@ -2,7 +2,81 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  background: transparent;
+  color: white;
+  padding: 0;
+  gap: 0;
+  height: 32px;
+}
+
+.logo-segment {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  height: 100%;
+  font-weight: 500;
+}
+
+.logo-segment-1 {
   background: var(--accent);
-  color: color-mix(in srgb, var(--accent), var(--accent-contrast-color) 90%);
-  padding: 5px 10px;
+  color: var(--background);
+  padding-left: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.logo-segment-2 {
+  background: color-mix(in srgb, var(--accent) 70%, var(--background));
+  color: white;
+  padding-right: 14px;
+  text-decoration: none;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.logo-separator,
+.logo-separator-end {
+  font-size: 1.4em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-separator::before {
+  content: "";
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 70%, var(--background));
+  margin-left: -1px;
+}
+
+.logo-separator-end::before {
+  content: "";
+  color: color-mix(in srgb, var(--accent) 70%, var(--background));
+  background: transparent;
+  margin-left: -1px;
+}
+
+.logo-icon::before {
+  content: " ";
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
 }

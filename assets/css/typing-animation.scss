@@ -1,0 +1,62 @@
+/* Typing animation for cover caption */
+.typing-caption {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  position: relative;
+  animation: typing-loop 15s linear infinite;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  @media (max-width: $phone) {
+    font-size: 0.9rem;
+    max-width: 100%;
+    white-space: wrap;
+    animation: none;
+  }
+}
+
+/* Block cursor */
+.typing-caption::after {
+  content: '';
+  position: absolute;
+  right: -0.05em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.65em;
+  height: 1.15em;
+  background-color: var(--accent);
+  animation: blink-block 0.75s step-end infinite;
+  
+  @media (max-width: $phone) {
+    transform: translateY(10%);
+  }
+}
+
+/* Typing animation that repeats every 10 seconds */
+@keyframes typing-loop {
+  0% { 
+    width: 0;
+  }
+  35% {
+    width: 100%;
+  }
+  95% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Blinking block cursor */
+@keyframes blink-block {
+  0%, 50% { 
+    opacity: 1;
+  }
+  51%, 100% { 
+    opacity: 0;
+  }
+}

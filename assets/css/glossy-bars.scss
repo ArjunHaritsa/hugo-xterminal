@@ -1,0 +1,51 @@
+/* Decorative vertical glossy bars aligned to text width, with 1in offset */
+
+$bar-width: 3px;
+$bar-width-mobile: 2px;
+$bar-gap: 96px; /* 1in in CSS units */
+$bar-gap-mobile: 20px; /* reduced gap for mobile to keep bars visible */
+
+.container {
+  position: relative;
+}
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: $bar-width;
+  pointer-events: none;
+  z-index: 0;
+  /* Enhanced retro glossy gradient + stronger glow */
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent), transparent 40%) 0%,
+      color-mix(in srgb, var(--accent), transparent 70%) 50%,
+      color-mix(in srgb, var(--accent), transparent 40%) 100%
+    );
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--accent), transparent 50%),
+    0 0 10px color-mix(in srgb, var(--accent), transparent 60%),
+    0 0 5px color-mix(in srgb, var(--accent), transparent 70%),
+    inset 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+/* Align with container padding (40px desktop, 15px mobile) */
+.container::before { left: 40px; transform: translateX(-$bar-gap); }
+.container::after  { right: 40px; transform: translateX($bar-gap); }
+
+@media (max-width: $phone) {
+  .container::before,
+  .container::after { width: $bar-width-mobile; }
+  /* Position bars closer to content edge on mobile */
+  .container::before { left: 15px; transform: translateX(-$bar-gap-mobile); }
+  .container::after  { right: 15px; transform: translateX($bar-gap-mobile); }
+}
+
+@media print {
+  .container::before,
+  .container::after { display: none; }
+}

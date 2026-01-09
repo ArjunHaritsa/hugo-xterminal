@@ -17,7 +17,12 @@ a.button {
   text-align: center;
   border-radius: 8;
   border: 1px solid var(--accent);
-  background: var(--accent);
+  /* Glossy accent surface */
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent), white 22%),
+    var(--accent)
+  );
   color: var(--accent-contrast-color);
   font: inherit;
   font-weight: bold;
@@ -25,8 +30,19 @@ a.button {
   cursor: pointer;
   outline: none;
 
+  box-shadow:
+    0 4px 12px color-mix(in srgb, var(--accent), transparent 75%),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+
   &:hover {
-    background: color-mix(in srgb, var(--accent), transparent 10%);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--accent), white 28%),
+      color-mix(in srgb, var(--accent), transparent 6%)
+    );
+    box-shadow:
+      0 6px 16px color-mix(in srgb, var(--accent), transparent 65%),
+      inset 0 1px 0 rgba(255,255,255,0.5);
   }
 
   /* variants */

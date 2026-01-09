@@ -11,24 +11,111 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media (max-width: $phone) {
+      gap: 10px;
+    }
   }
 
   &__logo {
     display: flex;
-    flex: 1;
-
-    &:after {
-      content: '';
-      background: repeating-linear-gradient(90deg, var(--accent), var(--accent) 2px, transparent 0, transparent 10px);
-      display: block;
-      width: 100%;
-      right: 10px;
-    }
+    flex: 0 0 auto;
+    max-width: 100%;
+    overflow: hidden;
 
     a {
       flex: 0 0 auto;
       max-width: 100%;
       text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+  }
+
+  &__animation {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    height: 32px;
+    overflow: hidden;
+
+    @media (max-width: 684px) {
+      display: none;
+    }
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 25px 0 20px 0;
+    position: relative;
+
+    @media print {
+      display: none;
+    }
+  }
+}
+
+@keyframes moveDot {
+  0% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(calc(100vw - 400px));
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+}
+
+.animated-dot {
+  position: absolute;
+  font-size: 1.5em;
+  color: var(--accent);
+  animation: moveDot 3s ease-in-out infinite;
+  left: 0;
+}
+
+.animated-dot-1 {
+  animation-delay: 0s;
+}
+
+.animated-dot-2 {
+  animation-delay: 1s;
+}
+
+.animated-dot-3 {
+  animation-delay: 2s;
+}
+
+.separator-line {
+  height: 1px;
+  width: 100%;
+  background: rgba(192, 192, 192, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.separator-icon {
+  color: rgba(192, 192, 192, 0.8);
+  font-size: 1.2rem;
+  padding: 0 8px;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+  
+  &::before {
+    content: "   ";
   }
 }
