@@ -1,5 +1,5 @@
 <script>
-// Prevent flash of blue theme and wrong theme variant - must run before any CSS loads
+// Prevent flash of wrong theme - must run before any CSS loads
 (function() {
   var themes = {
     blue: '#23b0ff',
@@ -13,13 +13,7 @@
   };
   
   try {
-    // Apply theme variant first
-    var savedVariant = localStorage.getItem('themeVariant');
-    if (savedVariant === 'glossy-light') {
-      document.documentElement.classList.add('theme-light');
-    }
-    
-    // Then apply color theme
+    // Apply color theme
     var savedTheme = localStorage.getItem('color-theme');
     if (savedTheme && themes[savedTheme]) {
       var color = themes[savedTheme];
@@ -36,13 +30,15 @@
 })();
 </script>
 <script>
-// Apply theme variant to body before it renders
+// Apply saved theme variant to html element immediately (before CSS loads),
+// so the correct --background propagates to the viewport canvas in all browsers.
 (function() {
-  var savedVariant = localStorage.getItem('themeVariant');
-  var DARK = 'glossy-dark';
-  var LIGHT = 'glossy-light';
-  var initialClass = (savedVariant === LIGHT) ? LIGHT : DARK;
-  document.documentElement.className = (document.documentElement.className || '') + ' preload-theme-' + initialClass;
+  try {
+    var savedVariant = localStorage.getItem('themeVariant');
+    if (savedVariant === 'glossy-light') {
+      document.documentElement.className = document.documentElement.className.replace('glossy-dark', 'glossy-light');
+    }
+  } catch(e) {}
 })();
 </script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">

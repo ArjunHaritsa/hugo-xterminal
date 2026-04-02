@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  background: var(--background);
+  color: var(--color);
 }
 
 *,
@@ -158,8 +160,8 @@ pre {
   margin: 40px 0;
   font-size: .95rem !important;
   overflow: auto;
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 
   + pre {
     border-top: 0;
@@ -310,7 +312,7 @@ mark {
   max-width: 864px;
   min-height: 100vh;
   position: relative;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid var(--border-color);
   width: 100%;
   box-sizing: border-box;
 

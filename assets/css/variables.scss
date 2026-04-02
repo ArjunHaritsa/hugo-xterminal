@@ -1,6 +1,6 @@
 :root {
   --accent-contrast-color: black;
-  --article-link-color: var(inherit);
+  --article-link-color: inherit;
   --background: color-mix(in srgb, var(--accent) 2%, #1d1e28 98%);
   --border-color: rgba(255, 255, 255, 0.1);
   --color: white;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ $.Site.Language }}">
+<html lang="{{ $.Site.Language }}" class="glossy-dark">
 <head>
   {{ block "title" . }}
     <title>{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ end }}</title>
@@ -11,6 +11,18 @@
 
 </head>
 <body class="glossy-dark">
+<script>
+// Immediately fix body class before any rendering occurs.
+// baseof.html defaults to glossy-dark; this patches it to the user's saved preference.
+(function() {
+  try {
+    var saved = localStorage.getItem('themeVariant');
+    if (saved === 'glossy-light') {
+      document.body.className = document.body.className.replace('glossy-dark', 'glossy-light');
+    }
+  } catch(e) {}
+})();
+</script>
 {{ if .Site.Params.Banner }}
   {{ with .Site.Params.Banner }}
     <div id="banner">

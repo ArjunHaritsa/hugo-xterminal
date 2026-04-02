@@ -1,8 +1,9 @@
-/* Runtime-selectable glossy themes via body classes */
+/* Runtime-selectable glossy themes via body/html classes */
 
-body.glossy-dark {
+.glossy-dark {
+  color-scheme: dark;
   --accent-contrast-color: black;
-  --article-link-color: var(inherit);
+  --article-link-color: inherit;
   /* Matte black background */
   --background: #0a0a0a;
   --border-color: rgba(255, 255, 255, 0.12);
@@ -24,13 +25,15 @@ body.glossy-dark {
   --syntax-code-copy-button-box-shadow-color: rgba(0, 0, 0, 0.25);
 }
 
-body.glossy-light {
+.glossy-light {
+  color-scheme: light;
   --accent-contrast-color: white;
-  --article-link-color: var(inherit);
+  --article-link-color: inherit;
   /* Matte white background */
   --background: #fafafa;
   --border-color: rgba(0, 0, 0, 0.12);
   --color: #111213;
+  --foreground: #111213;
   --menu-color: #111213;
   --syntax-func-color: color-mix(in srgb, var(--accent) 70%, #000 30%);
   --syntax-var-color: color-mix(in srgb, var(--accent) 90%, #000);
